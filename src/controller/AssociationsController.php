@@ -24,8 +24,10 @@ class AssociationsController{
 
     // Route: GET associations/$id/edit
     public function edit($id){
+        $conducteurs = Conducteur::findAll();
+        $vehicules = Vehicule::findAll();
         $association = Association::findOne($id);
-        view('associations.edit', compact('association'));
+        view('associations.edit', compact('association', 'conducteurs', 'vehicules'));
     }
 
     // Route: POST associations/$id/edit

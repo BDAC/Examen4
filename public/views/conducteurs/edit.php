@@ -1,10 +1,10 @@
 <?php ob_start(); ?>
 
-<a href="<?= url('conducteurs/' .  $conducteur->getId() ) ?>" class="btn btn-sm btn-secondary"> < Retour au conducteur</a>
+<a href="<?= url('conducteurs') ?>" class="btn btn-sm btn-secondary"> < Retour aux conducteurs</a>
 
 <br /><br />
 
-<form action="<?= url('conducteurs/add') ?>" method="post">
+    <form action="<?= url('conducteurs/' . $conducteur->getId() . '/edit') ?>" method="post">
 
         <div class="form-group">
             <label for="conducteurNameForm">Nom du conducteur</label>
@@ -17,7 +17,7 @@
         </div>
 
         <button class="btn btn-warning float-right">Mettre à jour le conducteur</button>
-        </form>
+    </form>
 
         <?php $content = ob_get_clean() ?>
         <?php view('template', compact('content')); ?>
