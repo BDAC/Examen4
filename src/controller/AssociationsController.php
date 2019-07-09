@@ -34,6 +34,7 @@ class AssociationsController{
 
     // Route: POST associations/$id/edit
     public function update($id){
+        $association = Association::findOne($id);
         $association->setIdConducteur($_POST['id_conducteur']);
         $association->setIdVehicule($_POST['id_vehicule']);
         $association->update();

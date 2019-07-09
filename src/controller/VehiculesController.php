@@ -32,10 +32,12 @@ class VehiculesController{
 
     // Route: POST vehicules/$id/edit
     public function update($id){
+        $vehicule = Vehicule::findOne($id);
         $vehicule->setMarque($_POST['marque']);
         $vehicule->setModele($_POST['modele']);
         $vehicule->setCouleur($_POST['couleur']);
         $vehicule->setImmatriculation($_POST['immatriculation']);
+        
         $vehicule->update();
 
         redirectTo('vehicules');

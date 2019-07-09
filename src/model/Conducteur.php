@@ -52,6 +52,20 @@ class Conducteur extends Db
         return $this;
     }
 
+    public function update()
+    {
+        if ($this->id > 0) {
+            $data = [
+                "id"      => $this->getId(),
+                "nom"    => $this->getNom(),
+                "prenom"   => $this->getPrenom()
+            ];
+            Db::dbUpdate(self::TABLE_NAME, $data);
+            return $this;
+        }
+        return;
+    }
+
     public function delete(){
         $data = [
             'id' => $this->getId(),

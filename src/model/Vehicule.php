@@ -82,6 +82,21 @@ class Vehicule extends Db
         return $this;
     }
 
+    public function update(){
+        if ($this->id > 0) {
+            $data = [
+                "id"                => $this->getId(),
+                "marque"            => $this->getMarque(),
+                "modele"            => $this->getModele(),
+                "couleur"           => $this->getCouleur(),
+                "immatriculation"   => $this->getImmatriculation()
+            ];
+            Db::dbUpdate(self::TABLE_NAME, $data);
+            return $this;
+        }
+        return;
+    }
+
     public function delete(){
         $data = [
             'id' => $this->getId(),

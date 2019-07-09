@@ -52,6 +52,20 @@ class Association extends Db
         return $this;
     }
 
+    public function update()
+    {
+        if ($this->id > 0) {
+            $data = [
+                "id"            => $this->getId(),
+                "id_conducteur"    => $this->getIdConducteur(),
+                "id_vehicule"     => $this->getIdVehicule()
+            ];
+            Db::dbUpdate(self::TABLE_NAME, $data);
+            return $this;
+        }
+        return;
+    }
+
     public function delete(){
         $data = [
             'id' => $this->getId(),

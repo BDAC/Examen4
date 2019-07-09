@@ -30,6 +30,7 @@ class ConducteursController{
 
     // Route: POST conducteurs/$id/edit
     public function update($id){
+        $conducteur = Conducteur::findOne($id);
         $conducteur->setNom($_POST['nom']);
         $conducteur->setPrenom($_POST['prenom']);
         $conducteur->update();
