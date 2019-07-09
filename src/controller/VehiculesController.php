@@ -20,6 +20,8 @@ class VehiculesController{
         $vehicule->setCouleur($_POST['couleur']);
         $vehicule->setImmatriculation($_POST['immatriculation']);
         $vehicule->save();
+
+        redirectTo('vehicules');
     }
 
     // Route: GET vehicules/$id/edit
@@ -30,13 +32,22 @@ class VehiculesController{
 
     // Route: POST vehicules/$id/edit
     public function update($id){
+        $vehicule->setMarque($_POST['marque']);
+        $vehicule->setModele($_POST['modele']);
+        $vehicule->setCouleur($_POST['couleur']);
+        $vehicule->setImmatriculation($_POST['immatriculation']);
+        $vehicule->update();
 
+        redirectTo('vehicules');
     }
 
     // Route: GET vehicules/$id/delete
     public function delete($id){
         $vehicule = Vehicule::findOne($id);
         $vehicule->delete();
+
+        redirectTo('vehicules');
+
     }
 
     // Route: GET vehicules/$id

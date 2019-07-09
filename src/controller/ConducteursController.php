@@ -18,6 +18,8 @@ class ConducteursController{
         $conducteur->setNom($_POST['nom']);
         $conducteur->setPrenom($_POST['prenom']);
         $conducteur->save();
+
+        redirectTo('conducteurs');
     }
 
     // Route: GET conducteurs/$id/edit
@@ -28,13 +30,19 @@ class ConducteursController{
 
     // Route: POST conducteurs/$id/edit
     public function update($id){
+        $conducteur->setNom($_POST['nom']);
+        $conducteur->setPrenom($_POST['prenom']);
+        $conducteur->update();
 
+        redirectTo('conducteurs');
     }
 
     // Route: GET conducteurs/$id/delete
     public function delete($id){
         $conducteur = Conducteur::findOne($id);
         $conducteur->delete();
+
+        redirectTo('conducteurs');
     }
 
     // Route: GET conducteurs/$id

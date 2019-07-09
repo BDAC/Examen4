@@ -20,6 +20,8 @@ class AssociationsController{
         $association->setIdConducteur($_POST['id_conducteur']);
         $association->setIdVehicule($_POST['id_vehicule']);
         $association->save();
+
+        redirectTo('associations');
     }
 
     // Route: GET associations/$id/edit
@@ -32,13 +34,19 @@ class AssociationsController{
 
     // Route: POST associations/$id/edit
     public function update($id){
+        $association->setIdConducteur($_POST['id_conducteur']);
+        $association->setIdVehicule($_POST['id_vehicule']);
+        $association->update();
 
+        redirectTo('associations');
     }
 
     // Route: GET associations/$id/delete
     public function delete($id){
         $association = Association::findOne($id);
         $association->delete();
+
+        redirectTo('associations');
     }
 
     // Route: GET associations/$id
