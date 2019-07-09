@@ -33,7 +33,8 @@ class ConducteursController{
 
     // Route: GET conducteurs/$id/delete
     public function delete($id){
-
+        $conducteur = Conducteur::findOne($id);
+        $conducteur->delete();
     }
 
     // Route: GET conducteurs/$id

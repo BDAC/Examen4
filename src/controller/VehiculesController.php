@@ -35,7 +35,8 @@ class VehiculesController{
 
     // Route: GET vehicules/$id/delete
     public function delete($id){
-
+        $vehicule = Vehicule::findOne($id);
+        $vehicule->delete();
     }
 
     // Route: GET vehicules/$id

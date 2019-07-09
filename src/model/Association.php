@@ -52,6 +52,14 @@ class Association extends Db
         return $this;
     }
 
+    public function delete(){
+        $data = [
+            'id' => $this->getId(),
+        ];
+        Db::dbDelete(self::TABLE_NAME, $data);
+        return;
+    }
+
     public static function findAll(){
         $data = Db::dbFind(self::TABLE_NAME);
 

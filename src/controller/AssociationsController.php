@@ -37,7 +37,8 @@ class AssociationsController{
 
     // Route: GET associations/$id/delete
     public function delete($id){
-
+        $association = Association::findOne($id);
+        $association->delete();
     }
 
     // Route: GET associations/$id
